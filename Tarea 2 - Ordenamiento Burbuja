@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+public class Arreglo {
+    private int[] arreglo;
+
+    // Le pedimos al usuario que ingrese la longitud y los elementos que tendra el arreglo
+    public Arreglo() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese la longitud del arreglo: ");
+        int longitud = scanner.nextInt();
+        arreglo = new int[longitud];
+
+        System.out.println("Ingrese los elementos del arreglo:");
+        for (int i = 0; i < longitud; i++) {
+            System.out.print("Elemento " + (i + 1) + ": ");
+            arreglo[i] = scanner.nextInt();
+        }
+    }
+
+    // Aqui hacemos que el arreglo se ordenene de mayor a menor usando "Burbuja"
+    public void ordenarDeMayorAMenor() {
+        int n = arreglo.length;
+        boolean intercambio;
+
+        do {
+            intercambio = false;
+            for (int i = 0; i < n - 1; i++) {
+                if (arreglo[i] < arreglo[i + 1]) {
+                    // Se intercambian los elementos
+                    int temp = arreglo[i];
+                    arreglo[i] = arreglo[i + 1];
+                    arreglo[i + 1] = temp;
+                    intercambio = true;
+                }
+            }
+        } while (intercambio);
+    }
+
+    // Hacemos que el arreglo se ordenene de mayor a menor usando "Burbuja"
+    public void ordenarDeMenorAMayor() {
+        int n = arreglo.length;
+        boolean intercambio;
+
+        do {
+            intercambio = false;
+            for (int i = 0; i < n - 1; i++) {
+                if (arreglo[i] > arreglo[i + 1]) {
+                    // Se intercambian los elementos
+                    int temp = arreglo[i];
+                    arreglo[i] = arreglo[i + 1];
+                    arreglo[i + 1] = temp;
+                    intercambiado = true;
+                }
+            }
+        } while (intercambiado);
+    }
+
+    // Ahora imprimimos el arreglo
+    public void imprimirArreglo() {
+        for (int i = 0; i < arreglo.length; i++) {
+            System.out.print(arreglo[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Arreglo miArreglo = new Arreglo();
+
+        System.out.println("Arreglo original:");
+        miArreglo.imprimirArreglo();
+
+        // Ordenamos de mayor a menor
+        miArreglo.ordenarDeMayorAMenor();
+        System.out.println("Arreglo ordenado de mayor a menor:");
+        miArreglo.imprimirArreglo();
+
+        // Ordenamos de menor a mayor
+        miArreglo.ordenarDeMenorAMayor();
+        System.out.println("Arreglo ordenado de menor a mayor:");
+        miArreglo.imprimirArreglo();
+    }
+}
